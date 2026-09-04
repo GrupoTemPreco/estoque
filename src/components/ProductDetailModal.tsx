@@ -72,20 +72,23 @@ export default function ProductDetailModal({
 
           <section>
             <h3 className="text-sm font-semibold mb-2">Resumo da rede</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-              <Stat label="Estoque total" value={formatInt(data.geral.estoque_total)} />
-              <Stat
-                label="Valor parado"
-                value={formatBRL(
-                  pickValor(data.geral.valor_custo_total, data.geral.valor_venda_total, modo)
-                )}
-              />
-              <Stat label="Méd/mês" value={formatMediaMensal(data.geral.media_mensal_rede)} />
-              <Stat label="Est. dias" value={formatEstoqueDias(data.geral.est_dias_rede)} />
-              <Stat label="Últ. venda" value={formatIsoDate(data.geral.ultima_venda_rede)} />
-              <Stat label="Últ. compra" value={formatIsoDate(data.geral.ultima_compra_rede)} />
-              <Stat label="Lojas com produto" value={formatInt(data.geral.lojas_com_produto)} />
-              <Stat label="Lojas com estoque" value={formatInt(data.geral.lojas_com_estoque)} />
+            <div className="flex flex-col gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <Stat label="Estoque total" value={formatInt(data.geral.estoque_total)} />
+                <Stat
+                  label="Valor parado"
+                  value={formatBRL(
+                    pickValor(data.geral.valor_custo_total, data.geral.valor_venda_total, modo)
+                  )}
+                />
+                <Stat label="Méd/mês" value={formatMediaMensal(data.geral.media_mensal_rede)} />
+                <Stat label="Est. dias" value={formatEstoqueDias(data.geral.est_dias_rede)} />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <Stat label="Últ. venda" value={formatIsoDate(data.geral.ultima_venda_rede)} />
+                <Stat label="Últ. compra" value={formatIsoDate(data.geral.ultima_compra_rede)} />
+                <Stat label="Lojas com estoque" value={formatInt(data.geral.lojas_com_estoque)} />
+              </div>
             </div>
           </section>
 
