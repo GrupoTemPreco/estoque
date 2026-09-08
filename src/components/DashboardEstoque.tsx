@@ -16,6 +16,7 @@ import Accordion from '@/components/Accordion';
 import NoSaleTable from '@/components/NoSaleTable';
 import ListaModoToggle, { DashboardSkeleton } from '@/components/ListaModoToggle';
 import { PaRankingBody } from '@/components/PaRankingBody';
+import MaintenanceOverlay from '@/components/MaintenanceOverlay';
 
 export default function DashboardEstoque() {
   const { data, loading, error, refetch, filters, setFilters, janela, setJanela, modo, setModo, rpcParams } =
@@ -170,6 +171,7 @@ export default function DashboardEstoque() {
               <ListaModoToggle modo={listaModo} onChange={setListaModo} />
 
               {listaModo === 'produto' ? (
+                <MaintenanceOverlay>
                 <div className="card p-4">
                   <div className="flex items-center justify-between mb-2.5">
                     <h3 className="text-sm font-semibold">Top 5 — há mais tempo sem venda</h3>
@@ -204,6 +206,7 @@ export default function DashboardEstoque() {
                     )}
                   </div>
                 </div>
+                </MaintenanceOverlay>
               ) : (
                 <div className="card overflow-hidden">
                   <div className="flex items-center justify-between px-4 pt-4 pb-2.5">
